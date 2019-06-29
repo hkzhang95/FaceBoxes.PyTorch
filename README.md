@@ -51,7 +51,7 @@ Note: I also write the annotation path into `test_img_list.txt` for evaluation. 
 
 You can evaluate the performance like follows (only `AP50` now):
 
-``` python
+```Shell
 python tools/eval_voc_ap.py path/to/detfile path/to/img_list dataset_name
 ```
 
