@@ -83,7 +83,7 @@ Please cite the paper in your publications if it helps your research:
 
 2. Clone this repository. We will call the cloned directory as `$FaceBoxes_ROOT`.
 ```Shell
-git clone https://github.com/zisianw/FaceBoxes.PyTorch.git
+git clone https://github.com/hkzhang95/FaceBoxes.PyTorch.git
 ```
 
 3. Compile the nms:
@@ -129,7 +129,7 @@ python3 test.py --cpu
 ```
 
 3. Download [eval_tool](https://bitbucket.org/marcopede/face-eval) to evaluate the performance.
-    
+
 ## References
 - [Official release (Caffe)](https://github.com/sfzhang15/FaceBoxes)
 - A huge thank you to SSD ports in PyTorch that have been helpful:
