@@ -2,9 +2,58 @@
 
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 
+Add support for user-specific datasets by [Hongkai Zhang](https://github.com/hkzhang95)
+
 By [Zisian Wong](https://github.com/zisianw), [Shifeng Zhang](http://www.cbsr.ia.ac.cn/users/sfzhang/)
 
 A [PyTorch](https://pytorch.org/) implementation of [FaceBoxes: A CPU Real-time Face Detector with High Accuracy](https://arxiv.org/abs/1708.05234). The official code in Caffe can be found [here](https://github.com/sfzhang15/FaceBoxes).
+
+## What's new in my version?
+
+- Fix a cython version bug when compiling NMS.
+- Add support for user-specific datasets.
+- Some useful tools such as visualizations, .gitignore, etc.
+
+### Form your own dataset
+
+Form your data like following:
+
+```
+data
+├── dataset name
+│   ├── images
+│   ├── annotations
+│   ├── img_list.txt
+│   ├── test_img_list.txt
+```
+
+Each line in `img_list.txt` and `test_img_list.txt` should be like this:
+
+```txt
+dirname/imagename.jpg dirname/imagename.xml
+```
+
+Here the `dirname` does not contain `images/annotations`. In other words, the real image path is `images/dirname/imagename.jpg` and the annotation path is `annotations/dirname/imagename.jpg`.
+
+Note: I also write the annotation path into `test_img_list.txt` for evaluation. You may replace it with something else since it is not required when testing.
+
+### Train
+
+- `--pin_memory` to speed up data loading (need large memory)
+
+### Test
+
+- `--resize ratio` to decide the ratio
+- `-s` or `--show_image` to visualize the detection results
+- `--vis_thres thres` to show the results with scores >= `thres`
+
+### Evaluation
+
+You can evaluate the performance like follows (only `AP50` now):
+
+``` python
+python tools/eval_voc_ap.py path/to/detfile path/to/img_list dataset_name
+```
 
 ## Performance
 | Dataset | Original Caffe | PyTorch Implementation |
