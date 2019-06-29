@@ -37,4 +37,4 @@ utils/nms/gpu_nms.cpp
 # project dirs
 /data
 /eval
-/weight
+/weights
