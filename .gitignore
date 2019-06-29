@@ -35,6 +35,5 @@ utils/nms/gpu_nms.cpp
 .DS_Store
 
 # project dirs
-/data
 /eval
 /weights
