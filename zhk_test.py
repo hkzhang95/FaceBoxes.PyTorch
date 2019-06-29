@@ -26,6 +26,7 @@ parser.add_argument('--resize', default=1, type=float)
 parser.add_argument('--nms_threshold', default=0.3, type=float, help='nms_threshold')
 parser.add_argument('--keep_top_k', default=750, type=int, help='keep_top_k')
 parser.add_argument('-s', '--show_image', action="store_true", default=False, help='show detection results')
+parser.add_argument('--vis_thres', default=0.5, type=float, help='visualization_threshold')
 args = parser.parse_args()
 
 
@@ -177,7 +178,7 @@ if __name__ == '__main__':
         # show image
         if args.show_image:
             for b in dets:
-                if b[4] < 0.5:
+                if b[4] < args.vis_thres:
                     continue
                 text = "{:.4f}".format(b[4])
                 b = list(map(int, b))
